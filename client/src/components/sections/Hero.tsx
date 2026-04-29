@@ -11,8 +11,9 @@ export function Hero() {
 
   useEffect(() => {
     const onScroll = () => {
-      const max = window.innerHeight * 0.9;
-      const p = Math.min(1, Math.max(0, window.scrollY / max));
+      const max = (window.innerHeight || 1) * 0.9;
+      const raw = max > 0 ? window.scrollY / max : 0;
+      const p = Math.min(1, Math.max(0, Number.isFinite(raw) ? raw : 0));
       setProgress(p);
     };
     onScroll();
@@ -27,7 +28,7 @@ export function Hero() {
       id="top"
       ref={containerRef}
       className="relative min-h-[100svh] flex flex-col"
-      style={{ opacity: 1 - progress * 0.4 }}
+      style={{ opacity: Number.isFinite(progress) ? 1 - progress * 0.4 : 1 }}
     >
       {/* Top meta band */}
       <div className="container pt-[6rem] sm:pt-[7rem] flex flex-wrap items-baseline justify-between gap-y-2">
@@ -59,6 +60,18 @@ export function Hero() {
 function HeroEmblem() {
   // Mark height adapts to the available viewport while staying within the column.
   // The "breath" is a slow, near-imperceptible opacity loop on the mark itself.
+  const [size, setSize] = useState(320);
+  useEffect(() => {
+    const update = () => {
+      const vh = window.innerHeight;
+      if (Number.isFinite(vh) && vh > 0) {
+        setSize(Math.round(Math.min(380, vh * 0.46)));
+      }
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
   return (
     <div className="relative flex flex-col items-center justify-center w-full">
       <div
@@ -68,7 +81,7 @@ function HeroEmblem() {
         {/* iconSize is the mark's pixel height; lockup variant would add a wordmark */}
         <EmblemMark
           variant="giant"
-          iconSize={Math.round(typeof window !== "undefined" ? Math.min(380, window.innerHeight * 0.46) : 320)}
+          iconSize={size}
           ariaLabel="Elab Company"
         />
       </div>
