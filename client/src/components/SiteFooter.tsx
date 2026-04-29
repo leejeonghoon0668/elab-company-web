@@ -37,7 +37,7 @@ export function SiteFooter() {
             <ul className="space-y-2 text-[14px] text-ink/85">
               <li>법인명 · 이랩컴퍼니</li>
               <li>사업자등록번호 · 622-71-00630</li>
-              <li>대표 · Daniel Yoo</li>
+              <li>대표 · 이정훈</li>
             </ul>
           </div>
 
