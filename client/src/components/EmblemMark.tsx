@@ -9,6 +9,12 @@
  *  - "giant"  : large stand-alone presentation (used in Hero)
  */
 import { cn } from "@/lib/utils";
+// Import the official mark as a bundled asset so Vite emits a hashed file
+// into dist/public/assets. This guarantees the file is served in any
+// production environment (Vercel, static CDN) regardless of publicDir or
+// rewrite rules.
+import markSrc from "@/assets/brand/elab-mark-ink.png";
+import markSrc2x from "@/assets/brand/elab-mark-ink@2x.png";
 
 interface EmblemMarkProps {
   variant?: "mark" | "lockup" | "giant";
@@ -17,8 +23,8 @@ interface EmblemMarkProps {
   ariaLabel?: string;
 }
 
-const MARK_SRC = "/elab-mark-ink.png";
-const MARK_SRC_2X = "/elab-mark-ink@2x.png";
+const MARK_SRC = markSrc;
+const MARK_SRC_2X = markSrc2x;
 // intrinsic aspect of the cropped mark image: 340 / 370 ≈ 0.919
 const MARK_ASPECT = 340 / 370;
 
