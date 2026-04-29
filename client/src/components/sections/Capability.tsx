@@ -21,17 +21,17 @@ const KEYWORDS = [
   },
   {
     en: "Creative Automation",
-    ko: "반복을 도구로 위임하다",
+    ko: "크리에이티브에 기술을 더하다",
     note: "Workflow · Templating · Quality at scale",
   },
   {
     en: "Brand Strategy",
-    ko: "이름을 가진 태도를 만들다",
+    ko: "브랜드에 과정을 더하다",
     note: "Anchor · Voice · Architecture",
   },
   {
     en: "Creative Performance Intelligence",
-    ko: "데이터로 감각을 검증하다",
+    ko: "데이터로 감각을 표현하다",
     note: "Signals · Feedback · Iteration",
   },
 ];
