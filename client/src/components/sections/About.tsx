@@ -51,7 +51,7 @@ export function About() {
               className="reveal text-[clamp(1.85rem,4.2vw,3.2rem)] leading-[1.25] tracking-[-0.015em] text-ink"
               style={{ fontFamily: "Pretendard, sans-serif", fontWeight: 500 }}
             >
-              <span className="font-display italic font-light">AI</span>가 크리에이티브를 만나면,
+              AI가 크리에이티브를 만나면,
               <br />
               보이지 않던 가치가 드러납니다.
             </p>

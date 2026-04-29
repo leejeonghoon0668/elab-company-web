@@ -34,7 +34,7 @@ export function SiteHeader() {
     >
       <div className="container flex items-center justify-between h-16 sm:h-[72px]">
         <a href="#top" className="text-ink no-underline" aria-label="Elab Company — Home">
-          <EmblemMark variant="lockup" iconSize={20} />
+          <EmblemMark variant="lockup" iconSize={26} />
         </a>
 
         <nav className="hidden md:flex items-center gap-7" aria-label="Primary">

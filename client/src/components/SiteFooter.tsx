@@ -14,7 +14,7 @@ export function SiteFooter() {
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-10">
           <div className="col-span-12 md:col-span-5">
-            <EmblemMark variant="lockup" iconSize={20} />
+            <EmblemMark variant="lockup" iconSize={28} />
             <p className="meta-mute mt-6 leading-[1.85]">
               Independent studio · Jeonju · Republic of Korea.
               <br />
@@ -48,11 +48,6 @@ export function SiteFooter() {
               <li>
                 <a href="mailto:why2077@elabcompany.com" className="nav-link">
                   why2077@elabcompany.com
-                </a>
-              </li>
-              <li>
-                <a href="tel:01099690668" className="nav-link">
-                  010-9969-0668
                 </a>
               </li>
               <li>

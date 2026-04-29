@@ -1,8 +1,8 @@
 /**
  * Capability — P02 / 04
  * Brief: 5 keywords. No body copy beyond what is essential.
- * Layout: numbered editorial list. Each row hairline-separated.
- * Right rail holds a small generated diagram for tactile texture.
+ * Layout: numbered editorial list, hairline-separated rows.
+ * (No diagram image — list breathes on its own.)
  */
 import { useReveal } from "@/hooks/useReveal";
 import { Hairline } from "../Hairline";
@@ -36,9 +36,6 @@ const KEYWORDS = [
   },
 ];
 
-const DIAGRAM_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/309891006088642949/m8Dr543jkVZGpYXwp3dna2/capability-abstract-5BCnwaNMYza7DzMLRvmyv3.webp";
-
 export function Capability() {
   const list = useReveal<HTMLOListElement>();
 
@@ -50,21 +47,23 @@ export function Capability() {
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-12 items-start">
           <div className="col-span-12 md:col-span-3">
-            <p className="meta-mute leading-[1.8]">
-              Formula
-              <br />
-              — Five disciplines
-            </p>
-            <div className="hairline mt-6 mb-6 w-10 opacity-60" />
-            <p className="text-[15px] leading-[1.8] text-ink/80">
-              우리는 다섯 개의 동사로 일합니다.
-              각각은 독립적이지만, 서로의 결과 위에서 다음을 시작합니다.
-            </p>
+            <div className="md:sticky md:top-32">
+              <p className="meta-mute leading-[1.8]">
+                Formula
+                <br />
+                — Five disciplines
+              </p>
+              <div className="hairline mt-6 mb-6 w-10 opacity-60" />
+              <p className="text-[15px] leading-[1.8] text-ink/80">
+                우리는 다섯 개의 동사로 일합니다.
+                각각은 독립적이지만, 서로의 결과 위에서 다음을 시작합니다.
+              </p>
+            </div>
           </div>
 
           <ol
             ref={list}
-            className="col-span-12 md:col-span-6 reveal stagger"
+            className="col-span-12 md:col-span-9 reveal stagger"
           >
             {KEYWORDS.map((k, i) => (
               <li
@@ -86,24 +85,6 @@ export function Capability() {
               </li>
             ))}
           </ol>
-
-          <aside className="col-span-12 md:col-span-3">
-            <figure className="md:sticky md:top-32">
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={DIAGRAM_IMG}
-                  alt="Five-node connection diagram on bone paper"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <figcaption className="meta-mute mt-3 leading-[1.7]">
-                Diagram II.
-                <br />
-                Five nodes, fully connected.
-              </figcaption>
-            </figure>
-          </aside>
         </div>
       </div>
     </section>

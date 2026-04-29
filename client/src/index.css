@@ -253,15 +253,17 @@
     transform: translateY(-4px);
   }
 
-  /* Hero abstract loop animation — SVG-safe (stroke-opacity + stroke-width breath) */
+  /* Hero emblem — slow, near-imperceptible opacity loop on the giant mark. */
   @keyframes hero-breath {
-    0%, 100% { stroke-opacity: 0.55; stroke-width: 1.2; }
-    50%      { stroke-opacity: 1;    stroke-width: 1.8; }
+    0%, 100% { opacity: 0.92; transform: translateY(0); }
+    50%      { opacity: 1;    transform: translateY(-2px); }
   }
-  .hero-line { animation: hero-breath 8s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
-  .hero-line-1 { animation-duration: 7s;  animation-delay: 0s; }
-  .hero-line-2 { animation-duration: 9s;  animation-delay: 0.7s; }
-  .hero-line-3 { animation-duration: 11s; animation-delay: 1.4s; }
+  .hero-breath {
+    animation: hero-breath 9s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   @keyframes mark {
     0%   { stroke-dashoffset: 1; }
@@ -317,6 +319,6 @@
   /* Reduce motion */
   @media (prefers-reduced-motion: reduce) {
     .reveal, .reveal-rule { transition: none; opacity: 1; transform: none; }
-    .hero-line { animation: none; stroke-opacity: 0.85; }
+    .hero-breath { animation: none; opacity: 1; }
   }
 }

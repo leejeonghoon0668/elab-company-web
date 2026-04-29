@@ -1,7 +1,8 @@
 /**
  * Contact — P04 / 04
- * Brief: address (Korean main + English secondary), email, phone.
+ * Brief: address (Korean main + English secondary), email.
  * Treatment: copy-to-clipboard for email; quiet hover affordances.
+ * (Phone removed per editorial direction — single voice, single channel.)
  */
 import { useState } from "react";
 import { useReveal } from "@/hooks/useReveal";
@@ -10,8 +11,6 @@ import { SectionIndex } from "../SectionIndex";
 import { toast } from "sonner";
 
 const EMAIL = "why2077@elabcompany.com";
-const PHONE = "010-9969-0668";
-const PHONE_INTL = "+82 10-9969-0668";
 const ADDR_KO = "전북특별자치도 전주시 완산구 황강서원 3길 3-10 1층";
 const ADDR_EN =
   "1F, 3-10 Hwanggangseowon 3-gil, Wansan-gu, Jeonju-si, Jeollabuk-do, Republic of Korea";
@@ -53,8 +52,8 @@ export function Contact() {
           ref={grid}
           className="reveal mt-20 grid grid-cols-12 gap-x-6 gap-y-14"
         >
-          {/* Email */}
-          <div className="col-span-12 md:col-span-6">
+          {/* Email — primary, takes full editorial width */}
+          <div className="col-span-12">
             <p className="meta-mute mb-4">Mail</p>
             <button
               type="button"
@@ -62,25 +61,13 @@ export function Contact() {
               aria-label="Copy email address to clipboard"
               className="group inline-flex items-baseline gap-3 text-left"
             >
-              <span className="font-display text-[clamp(1.6rem,3.2vw,2.5rem)] tracking-tight text-ink underline decoration-[color:var(--ink)]/15 underline-offset-[8px] group-hover:decoration-[color:var(--ink)] transition-[text-decoration-color] duration-500">
+              <span className="font-display text-[clamp(1.6rem,3.6vw,2.75rem)] tracking-tight text-ink underline decoration-[color:var(--ink)]/15 underline-offset-[8px] group-hover:decoration-[color:var(--ink)] transition-[text-decoration-color] duration-500">
                 {EMAIL}
               </span>
               <span className="meta-mute shrink-0 transition-opacity duration-300">
                 {copied ? "Copied" : "[ copy ]"}
               </span>
             </button>
-          </div>
-
-          {/* Phone */}
-          <div className="col-span-12 md:col-span-6">
-            <p className="meta-mute mb-4">Telephone</p>
-            <a
-              href={`tel:${PHONE.replace(/-/g, "")}`}
-              className="font-display text-[clamp(1.6rem,3.2vw,2.5rem)] tracking-tight text-ink nav-link"
-            >
-              {PHONE}
-            </a>
-            <p className="meta-mute mt-3">{PHONE_INTL}</p>
           </div>
 
           {/* Address */}
@@ -94,6 +81,7 @@ export function Contact() {
             </p>
           </div>
 
+          {/* Hours */}
           <div className="col-span-12 md:col-span-4">
             <p className="meta-mute mb-4">Hours</p>
             <p className="text-[15px] leading-[1.85] text-ink/80">
