@@ -60,12 +60,12 @@ export function Hero() {
 function HeroEmblem() {
   // Mark height adapts to the available viewport while staying within the column.
   // The "breath" is a slow, near-imperceptible opacity loop on the mark itself.
-  const [size, setSize] = useState(320);
+  const [size, setSize] = useState(244);
   useEffect(() => {
     const update = () => {
       const vh = window.innerHeight;
       if (Number.isFinite(vh) && vh > 0) {
-        setSize(Math.round(Math.min(380, vh * 0.46)));
+        setSize(Math.round(Math.min(290, vh * 0.36)));
       }
     };
     update();
@@ -76,7 +76,7 @@ function HeroEmblem() {
     <div className="relative flex flex-col items-center justify-center w-full">
       <div
         className="hero-breath text-ink"
-        style={{ height: "min(46vh, 380px)" }}
+        style={{ height: "min(36vh, 290px)" }}
       >
         {/* iconSize is the mark's pixel height; lockup variant would add a wordmark */}
         <EmblemMark
@@ -87,7 +87,7 @@ function HeroEmblem() {
       </div>
 
       {/* Wordmark caption underneath, set in spaced display caps */}
-      <p className="mt-10 font-display tracking-[0.42em] text-[12px] text-ink/55 uppercase">
+      <p className="mt-8 font-display tracking-[0.42em] text-[11px] text-ink/55 uppercase">
         E&nbsp;·&nbsp;L&nbsp;·&nbsp;A&nbsp;·&nbsp;B&nbsp;&nbsp;&nbsp;C&nbsp;·&nbsp;O&nbsp;·&nbsp;M&nbsp;·&nbsp;P&nbsp;·&nbsp;A&nbsp;·&nbsp;N&nbsp;·&nbsp;Y
       </p>
     </div>
