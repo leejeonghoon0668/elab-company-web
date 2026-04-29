@@ -17,8 +17,8 @@ interface EmblemMarkProps {
   ariaLabel?: string;
 }
 
-const MARK_SRC = "/manus-storage/elab-mark-ink_506efc44.png";
-const MARK_SRC_2X = "/manus-storage/elab-mark-ink@2x_e8b1ae52.png";
+const MARK_SRC = "/elab-mark-ink.png";
+const MARK_SRC_2X = "/elab-mark-ink@2x.png";
 // intrinsic aspect of the cropped mark image: 340 / 370 ≈ 0.919
 const MARK_ASPECT = 340 / 370;
 
