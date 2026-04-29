@@ -88,7 +88,7 @@ function HeroEmblem() {
 
       {/* Wordmark caption underneath, set in spaced display caps */}
       <p className="mt-10 font-display tracking-[0.42em] text-[12px] text-ink/55 uppercase">
-        E&nbsp;·&nbsp;L&nbsp;·&nbsp;A&nbsp;·&nbsp;B
+        E&nbsp;·&nbsp;L&nbsp;·&nbsp;A&nbsp;·&nbsp;B&nbsp;&nbsp;&nbsp;C&nbsp;·&nbsp;O&nbsp;·&nbsp;M&nbsp;·&nbsp;P&nbsp;·&nbsp;A&nbsp;·&nbsp;N&nbsp;·&nbsp;Y
       </p>
     </div>
   );
