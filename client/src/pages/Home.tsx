@@ -1,25 +1,28 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
-
 /**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+ * Home — Elab Company landing
+ * Editorial Studio Press : Bone paper × Deep Ink Navy.
+ * Sections: Hero · About · Capability · Projects · Contact · Footer
  */
-export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Capability } from "@/components/sections/Capability";
+import { Projects } from "@/components/sections/Projects";
+import { Contact } from "@/components/sections/Contact";
 
+export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SiteHeader />
       <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
+        <Hero />
+        <About />
+        <Capability />
+        <Projects />
+        <Contact />
       </main>
+      <SiteFooter />
     </div>
   );
 }

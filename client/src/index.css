@@ -1,3 +1,12 @@
+/**
+ * ELAB COMPANY — Editorial Studio Press
+ * ──────────────────────────────────────
+ * Aesthetic: Swiss editorial × Japanese print culture
+ * Palette : Bone Paper (#F4F1EA) + Deep Ink Navy (#0F1B2D)
+ * Type    : Fraunces (display serif) / Pretendard (Korean body) / JetBrains Mono (meta)
+ * Anchor  : "AI Creative Studio" — felt through tone, never written.
+ */
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -34,91 +43,109 @@
   --color-chart-5: var(--chart-5);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-bone: var(--bone);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-rule: var(--rule);
+
+  --font-display: "Fraunces", "Pretendard", ui-serif, Georgia, serif;
+  --font-sans: "Pretendard", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  /* ── Brand tokens ──────────────────────────────── */
+  --bone: oklch(0.948 0.012 85);          /* #F4F1EA */
+  --ink: oklch(0.205 0.035 252);          /* #0F1B2D */
+  --ink-soft: oklch(0.32 0.045 250);      /* #1F3A5F */
+  --ink-mute: oklch(0.205 0.035 252 / 0.55);
+  --rule: oklch(0.205 0.035 252 / 0.18);
+
+  /* ── shadcn semantic mapping ───────────────────── */
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --card: var(--bone);
+  --card-foreground: var(--ink);
+  --popover: var(--bone);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--bone);
+  --secondary: oklch(0.92 0.012 85);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.92 0.012 85);
+  --muted-foreground: var(--ink-mute);
+  --accent: oklch(0.9 0.012 85);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.5 0.18 28);
+  --destructive-foreground: var(--bone);
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--ink-soft);
+  --radius: 0;
+
+  --sidebar: var(--bone);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--bone);
+  --sidebar-accent: oklch(0.92 0.012 85);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--rule);
+  --sidebar-ring: var(--ink-soft);
+
+  --chart-1: var(--ink);
+  --chart-2: var(--ink-soft);
+  --chart-3: oklch(0.5 0.04 250);
+  --chart-4: oklch(0.7 0.025 250);
+  --chart-5: oklch(0.85 0.015 85);
 }
 
+/* No dark theme — Editorial Studio Press is single-theme by design.
+   We inherit :root values for .dark to avoid breakage if forced. */
 .dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --card: var(--bone);
+  --card-foreground: var(--ink);
+  --popover: var(--bone);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--bone);
+  --secondary: oklch(0.92 0.012 85);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.92 0.012 85);
+  --muted-foreground: var(--ink-mute);
+  --accent: oklch(0.9 0.012 85);
+  --accent-foreground: var(--ink);
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--ink-soft);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    background: var(--bone);
+  }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "ss02", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* paper grain */
+    background-image:
+      radial-gradient(rgba(15, 27, 45, 0.025) 1px, transparent 1px),
+      radial-gradient(rgba(15, 27, 45, 0.018) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+  }
+  ::selection {
+    background: var(--ink);
+    color: var(--bone);
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -134,44 +161,162 @@
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
-    padding-right: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
-
   .flex {
     min-height: 0;
     min-width: 0;
   }
-
   @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
-      padding-right: 1.5rem;
-    }
+    .container { padding-left: 1.75rem; padding-right: 1.75rem; }
+  }
+  @media (min-width: 1024px) {
+    .container { padding-left: 2.5rem; padding-right: 2.5rem; max-width: 1440px; }
   }
 
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem; /* 32px - desktop padding */
-      padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
-    }
+  /* ─── Editorial primitives ──────────────────────── */
+  .font-display { font-family: var(--font-display); font-optical-sizing: auto; }
+  .font-mono    { font-family: var(--font-mono); }
+
+  .hairline {
+    height: 1px;
+    background: var(--ink);
+    opacity: 0.85;
+    transform-origin: left center;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .meta-mute {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* Reveal-on-scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 900ms cubic-bezier(0.2, 0.6, 0.2, 1),
+      transform 900ms cubic-bezier(0.2, 0.6, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-rule {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 1100ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .reveal-rule.is-visible {
+    transform: scaleX(1);
+  }
+
+  /* Stagger children helper — children fade & rise as parent reveals */
+  .stagger > * {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 800ms cubic-bezier(0.2, 0.6, 0.2, 1),
+      transform 800ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+  .stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+  .stagger.is-visible > *:nth-child(2) { transition-delay: 100ms; }
+  .stagger.is-visible > *:nth-child(3) { transition-delay: 200ms; }
+  .stagger.is-visible > *:nth-child(4) { transition-delay: 300ms; }
+  .stagger.is-visible > *:nth-child(5) { transition-delay: 400ms; }
+  .stagger.is-visible > *:nth-child(6) { transition-delay: 500ms; }
+
+  /* Dotted leader (Harken-style index line, but tight) */
+  .leader {
+    flex: 1 1 auto;
+    border-bottom: 1px dotted var(--ink);
+    opacity: 0.55;
+    margin: 0 0.75rem;
+    transform: translateY(-4px);
+  }
+
+  /* Hero abstract loop animation — SVG-safe (stroke-opacity + stroke-width breath) */
+  @keyframes hero-breath {
+    0%, 100% { stroke-opacity: 0.55; stroke-width: 1.2; }
+    50%      { stroke-opacity: 1;    stroke-width: 1.8; }
+  }
+  .hero-line { animation: hero-breath 8s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+  .hero-line-1 { animation-duration: 7s;  animation-delay: 0s; }
+  .hero-line-2 { animation-duration: 9s;  animation-delay: 0.7s; }
+  .hero-line-3 { animation-duration: 11s; animation-delay: 1.4s; }
+
+  @keyframes mark {
+    0%   { stroke-dashoffset: 1; }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  /* Underline-on-hover for nav */
+  .nav-link {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 420ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  /* Display headlines */
+  .display-1 {
+    font-family: var(--font-display);
+    font-weight: 350;
+    font-style: normal;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .display-2 {
+    font-family: var(--font-display);
+    font-weight: 380;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    font-variation-settings: "opsz" 96, "SOFT" 30;
+  }
+  .display-3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 60, "SOFT" 50;
+  }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-rule { transition: none; opacity: 1; transform: none; }
+    .hero-line { animation: none; stroke-opacity: 0.85; }
   }
 }
