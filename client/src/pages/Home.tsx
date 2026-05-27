@@ -5,6 +5,7 @@
  */
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { HorizontalScroller } from "@/components/HorizontalScroller";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Capability } from "@/components/sections/Capability";
@@ -16,13 +17,15 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main>
-        <Hero />
-        <About />
-        <Capability />
-        <Projects />
-        <Contact />
+        <HorizontalScroller>
+          <Hero />
+          <About />
+          <Capability />
+          <Projects />
+          <Contact />
+          <SiteFooter />
+        </HorizontalScroller>
       </main>
-      <SiteFooter />
     </div>
   );
 }

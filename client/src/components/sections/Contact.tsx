@@ -32,7 +32,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-[8rem] sm:py-[10rem]">
+    <section id="contact" className="relative py-[8rem] sm:py-[10rem] lg:py-0 lg:w-screen lg:h-screen lg:flex-shrink-0 lg:overflow-hidden lg:flex lg:flex-col lg:justify-center">
       <div className="container">
         <SectionIndex number="04" title="Contact" fraction="04 / 04" />
         <Hairline className="mt-6 mb-16 sm:mb-20" />

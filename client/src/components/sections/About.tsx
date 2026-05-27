@@ -24,7 +24,7 @@ export function About() {
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-14">
           {/* Left rail — meta column */}
-          <aside className="col-span-12 md:col-span-3 order-2 md:order-1">
+          <aside className="col-span-12 md:col-span-2 order-2 md:order-1">
             <div className="md:sticky md:top-32 space-y-5">
               <p className="meta-mute leading-[1.8]">
                 Studio Note

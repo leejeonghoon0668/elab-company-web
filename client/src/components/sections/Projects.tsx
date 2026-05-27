@@ -12,7 +12,7 @@ export function Projects() {
   const note = useReveal<HTMLDivElement>();
 
   return (
-    <section id="projects" className="relative py-[8rem] sm:py-[10rem]">
+    <section id="projects" className="relative py-[8rem] sm:py-[10rem] lg:py-0 lg:w-screen lg:h-screen lg:flex-shrink-0 lg:overflow-hidden lg:flex lg:flex-col lg:justify-center">
       <div className="container">
         <SectionIndex number="03" title="Projects" fraction="03 / 04" />
         <Hairline className="mt-6 mb-20 sm:mb-24" />

@@ -2,25 +2,41 @@
  * SiteHeader — fixed top header with logo lockup, anchor nav, and locale meta.
  * Editorial Studio Press : whitespace-forward, hairline divider, restrained typography.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { EmblemMark } from "./EmblemMark";
 
 const NAV = [
-  { label: "About",      href: "#about",      hint: "01" },
-  { label: "Capability", href: "#capability", hint: "02" },
-  { label: "Projects",   href: "#projects",   hint: "03" },
-  { label: "Contact",    href: "#contact",    hint: "04" },
-];
+  { label: "About", href: "#about", hint: "01", panelIndex: 1 },
+  { label: "Capability", href: "#capability", hint: "02", panelIndex: 2 },
+  { label: "Projects", href: "#projects", hint: "03", panelIndex: 3 },
+  { label: "Contact", href: "#contact", hint: "04", panelIndex: 4 },
+] as const;
+
+const DESKTOP_MQ = "(min-width: 1024px)";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () =>
+      setScrolled(window.scrollY > 24 || window.scrollX > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const onNavClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    panelIndex: number,
+  ) => {
+    if (window.matchMedia(DESKTOP_MQ).matches) {
+      event.preventDefault();
+      window.scrollTo({
+        top: panelIndex * window.innerHeight,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <header
@@ -42,6 +58,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
+              onClick={(event) => onNavClick(event, item.panelIndex)}
               className="nav-link group flex items-baseline gap-1.5 text-[14px] tracking-wide text-ink"
             >
               <span className="meta-mute opacity-50 group-hover:opacity-80 transition-opacity">

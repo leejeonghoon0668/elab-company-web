@@ -8,7 +8,7 @@ import { Hairline } from "./Hairline";
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative pt-20 pb-12">
+    <footer className="relative pt-20 pb-12 lg:w-screen lg:h-screen lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-end lg:overflow-hidden">
       <div className="container">
         <Hairline className="mb-12" />
 

@@ -27,7 +27,7 @@ export function Hero() {
     <section
       id="top"
       ref={containerRef}
-      className="relative min-h-[100svh] flex flex-col"
+      className="relative min-h-[100svh] flex flex-col lg:w-screen lg:h-screen lg:flex-shrink-0 lg:overflow-hidden lg:flex lg:flex-col lg:justify-center lg:min-h-0"
       style={{ opacity: Number.isFinite(progress) ? 1 - progress * 0.4 : 1 }}
     >
       {/* Top meta band */}
@@ -87,6 +87,9 @@ function HeroEmblem() {
       </div>
 
       {/* Wordmark caption underneath, set in spaced display caps */}
+      <p className="mt-8 font-display tracking-[0.42em] text-[11px] text-ink/55 uppercase">
+        E&nbsp;·&nbsp;L&nbsp;·&nbsp;A&nbsp;·&nbsp;B&nbsp;&nbsp;&nbsp;C&nbsp;·&nbsp;O&nbsp;·&nbsp;M&nbsp;·&nbsp;P&nbsp;·&nbsp;A&nbsp;·&nbsp;N&nbsp;·&nbsp;Y
+      </p>
     </div>
   );
 }
