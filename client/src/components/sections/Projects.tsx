@@ -1,15 +1,40 @@
 /**
  * Projects — P03 / 04
- * Brief: COMING SOON only. No Haru+, no past references, no client logos.
- * Treatment: a single editorial spread that respects the empty state with dignity.
+ * Live products: Baro, Haru+ (external links, new tab).
+ * Downloads: Baro / Haru+ brochures + company profile (PDF in /public/downloads).
  */
 import { useReveal } from "@/hooks/useReveal";
 import { Hairline } from "../Hairline";
 import { SectionIndex } from "../SectionIndex";
 
+const PROJECTS = [
+  {
+    no: "01",
+    name: "Baro",
+    desc: "강의 영상의 번역·자막·대본을 자동으로",
+    label: "BARO · LIVE",
+    href: "https://baro-v0-leejeonghoon0668s-projects.vercel.app/",
+  },
+  {
+    no: "02",
+    name: "Haru+",
+    desc: "사장님의 SNS 마케팅을 대신합니다",
+    label: "HARU+ · LIVE",
+    href: "https://haru-plus.vercel.app/",
+  },
+];
+
+const DOWNLOADS = [
+  { label: "Baro 제품소개서", file: "/downloads/baro-brochure.pdf" },
+  { label: "Haru+ 제품소개서", file: "/downloads/haru-plus-brochure.pdf" },
+  { label: "회사소개서", file: "/downloads/elab-company-profile.pdf" },
+];
+
 export function Projects() {
   const headline = useReveal<HTMLDivElement>();
   const note = useReveal<HTMLDivElement>();
+  const cards = useReveal<HTMLDivElement>();
+  const files = useReveal<HTMLDivElement>();
 
   return (
     <section id="projects" className="relative py-[8rem] sm:py-[10rem]">
@@ -19,49 +44,68 @@ export function Projects() {
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-12 items-end">
           <div ref={headline} className="reveal col-span-12 md:col-span-8">
-            <p className="meta-mute mb-6">— On the bench, not yet on the wall</p>
+            <p className="meta-mute mb-6">— Built, and currently in service</p>
             <h3 className="display-1 text-[clamp(3.2rem,9vw,7.5rem)] text-ink">
-              Coming
+              Selected
               <br />
-              <span className="italic font-light">Soon.</span>
+              <span className="italic font-light">Works.</span>
             </h3>
           </div>
 
           <div ref={note} className="reveal col-span-12 md:col-span-4" style={{ transitionDelay: "180ms" }}>
             <div className="hairline mb-6 w-10 opacity-60" />
             <p className="text-[15px] leading-[1.85] text-ink/80">
-              현재 진행 중인 프로젝트들은 아직 공개 단계에 이르지 않았습니다.
-              때가 되면, 작품이 스스로 말하도록 자리를 비워두겠습니다.
+              이랩이 만든 제품들은 지금 사용자의 일상에서 작동하고 있습니다.
+              각 프로젝트는 독립적으로 움직이며, 다음 가능성을 향해 확장됩니다.
             </p>
             <p className="meta-mute mt-8">
-              Catalog opens
+              In service
               <br />
-              — Q3, 2026 (planned)
+              — 2026
             </p>
           </div>
         </div>
 
-        {/* Empty placeholder grid — preserves the editorial cadence */}
-        <div className="mt-20 sm:mt-28 grid grid-cols-12 gap-4">
-          {[0, 1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="col-span-12 sm:col-span-6 lg:col-span-3 aspect-[4/5] border border-[color:var(--rule)] flex flex-col"
+        <div ref={cards} className="reveal mt-20 sm:mt-28 grid grid-cols-12 gap-4">
+          {PROJECTS.map((p, i) => (
+            <a
+              key={p.no}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group col-span-12 md:col-span-6 aspect-[16/9] sm:aspect-[2/1] border border-[color:var(--rule)] flex flex-col transition-colors duration-500 hover:border-[color:var(--ink)]"
+              style={{ transitionDelay: `${i * 120}ms` }}
             >
-              <div className="flex items-center justify-between p-4">
-                <span className="meta-mute tabular-nums">0{i + 1}</span>
-                <span className="meta-mute opacity-50">—</span>
+              <div className="flex items-center justify-between p-5">
+                <span className="meta-mute tabular-nums">{p.no}</span>
+                <span className="meta-mute transition-transform duration-500 group-hover:translate-x-1">↗</span>
               </div>
-              <div className="flex-1 flex items-center justify-center">
-                <span className="meta-mute opacity-50 select-none">
-                  · · ·
-                </span>
+              <div className="flex-1 flex flex-col justify-center px-5">
+                <span className="display-1 text-[clamp(1.8rem,4vw,2.8rem)] text-ink leading-none">{p.name}</span>
+                <span className="text-[13px] leading-[1.6] text-ink/70 mt-3">{p.desc}</span>
               </div>
-              <div className="p-4">
-                <span className="meta-mute opacity-60">Untitled · TBA</span>
+              <div className="p-5">
+                <span className="meta-mute opacity-70">{p.label}</span>
               </div>
-            </div>
+            </a>
           ))}
+        </div>
+
+        <div ref={files} className="reveal mt-16 sm:mt-20" style={{ transitionDelay: "160ms" }}>
+          <p className="meta-mute mb-6">— Downloads</p>
+          <div className="grid grid-cols-12 gap-4">
+            {DOWNLOADS.map((d) => (
+              <a
+                key={d.file}
+                href={d.file}
+                download
+                className="group col-span-12 sm:col-span-4 border border-[color:var(--rule)] flex items-center gap-3 px-5 py-4 transition-colors duration-500 hover:border-[color:var(--ink)]"
+              >
+                <span className="text-ink/80 transition-transform duration-500 group-hover:translate-y-0.5">↓</span>
+                <span className="text-[14px] text-ink">{d.label}</span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
