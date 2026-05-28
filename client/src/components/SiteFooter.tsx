@@ -1,6 +1,6 @@
 /**
  * SiteFooter — business reg. number, legal entity, copyright.
- * Brief PART 3 [6]: 사업자번호(622-71-00630) / 법인 정보 / 저작권
+ * Brief PART 3 [6]: 사업자번호(305-86-42613) / 법인 정보 / 저작권
  */
 import { EmblemMark } from "./EmblemMark";
 import { Hairline } from "./Hairline";
@@ -32,11 +32,11 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="col-span-6 md:col-span-2">
+          <div className="col-span-6 md:col-span-4">
             <p className="meta-mute mb-3">Legal</p>
             <ul className="space-y-2 text-[14px] text-ink/85">
-              <li>법인명 · 이랩컴퍼니</li>
-              <li>사업자등록번호 · 622-71-00630</li>
+              <li>법인명 · 주식회사 이랩컴퍼니</li>
+              <li className="md:whitespace-nowrap">사업자등록번호 · 305-86-42613</li>
               <li>대표 · 이정훈</li>
             </ul>
           </div>
