@@ -20,7 +20,7 @@ const PROJECTS = [
     name: "Haru+",
     desc: "사장님의 SNS 마케팅을 대신합니다",
     label: "HARU+ · LIVE",
-    href: "https://haru-plus.vercel.app/",
+    href: "https://haru-demo.elabcompany.com/",
   },
 ];
 
