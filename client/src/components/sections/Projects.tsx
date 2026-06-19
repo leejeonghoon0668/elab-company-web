@@ -1,6 +1,6 @@
 /**
  * Projects — P03 / 04
- * Live products: Baro, Haru+ (external links, new tab).
+ * Live products: Baro, Haru+ (external links, new tab). Cubric: coming soon (no link).
  * Downloads: Baro / Haru+ brochures + company profile (PDF in /public/downloads).
  */
 import { useReveal } from "@/hooks/useReveal";
@@ -21,6 +21,13 @@ const PROJECTS = [
     desc: "사장님의 SNS 마케팅을 대신합니다",
     label: "HARU+ · LIVE",
     href: "https://haru-demo.elabcompany.com/",
+  },
+  {
+    no: "03",
+    name: "Cubric",
+    desc: "준비 중입니다",
+    label: "CUBRIC · COMING SOON",
+    href: null,
   },
 ];
 
@@ -67,28 +74,59 @@ export function Projects() {
         </div>
 
         <div ref={cards} className="reveal mt-20 sm:mt-28 grid grid-cols-12 gap-4">
-          {PROJECTS.map((p, i) => (
-            <a
-              key={p.no}
-              href={p.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group col-span-12 md:col-span-6 aspect-[16/9] sm:aspect-[2/1] border border-[color:var(--rule)] flex flex-col transition-colors duration-500 hover:border-[color:var(--ink)]"
-              style={{ transitionDelay: `${i * 120}ms` }}
-            >
-              <div className="flex items-center justify-between p-5">
-                <span className="meta-mute tabular-nums">{p.no}</span>
-                <span className="meta-mute transition-transform duration-500 group-hover:translate-x-1">↗</span>
+          {PROJECTS.map((p, i) => {
+            const cardClass =
+              "group col-span-12 md:col-span-4 aspect-[16/9] sm:aspect-[2/1] border border-[color:var(--rule)] flex flex-col transition-colors duration-500";
+            const inner = (
+              <>
+                <div className="flex items-center justify-between p-5">
+                  <span className="meta-mute tabular-nums">{p.no}</span>
+                  {p.href ? (
+                    <span className="meta-mute transition-transform duration-500 group-hover:translate-x-1">↗</span>
+                  ) : (
+                    <span className="meta-mute opacity-40">·</span>
+                  )}
+                </div>
+                <div className="flex-1 flex flex-col justify-center px-5">
+                  <span
+                    className={`display-1 text-[clamp(1.8rem,4vw,2.8rem)] leading-none ${p.href ? "text-ink" : "text-ink/60"}`}
+                  >
+                    {p.name}
+                  </span>
+                  <span
+                    className={`text-[13px] leading-[1.6] mt-3 ${p.href ? "text-ink/70" : "text-ink/50"}`}
+                  >
+                    {p.desc}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <span className="meta-mute opacity-70">{p.label}</span>
+                </div>
+              </>
+            );
+
+            return p.href ? (
+              <a
+                key={p.no}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${cardClass} hover:border-[color:var(--ink)]`}
+                style={{ transitionDelay: `${i * 120}ms` }}
+              >
+                {inner}
+              </a>
+            ) : (
+              <div
+                key={p.no}
+                aria-disabled="true"
+                className={`${cardClass} cursor-default select-none`}
+                style={{ transitionDelay: `${i * 120}ms` }}
+              >
+                {inner}
               </div>
-              <div className="flex-1 flex flex-col justify-center px-5">
-                <span className="display-1 text-[clamp(1.8rem,4vw,2.8rem)] text-ink leading-none">{p.name}</span>
-                <span className="text-[13px] leading-[1.6] text-ink/70 mt-3">{p.desc}</span>
-              </div>
-              <div className="p-5">
-                <span className="meta-mute opacity-70">{p.label}</span>
-              </div>
-            </a>
-          ))}
+            );
+          })}
         </div>
 
         <div ref={files} className="reveal mt-16 sm:mt-20" style={{ transitionDelay: "160ms" }}>
